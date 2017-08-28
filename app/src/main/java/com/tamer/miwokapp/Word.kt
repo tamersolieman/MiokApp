@@ -1,41 +1,40 @@
 package com.tamer.miwokapp
 
-
-public class Word {
+class Word(defaultTranslation: String, miwokTranslation: String) {
 
     /** Default translation for the word  */
-    private var mDefaultTranslation: String? = null
+    var mDefaultTrans: String? = defaultTranslation
 
 
     /** Miwok translation for the word */
-    private var mMiwokTranslation: String? = null
+    var mMiwokTrans: String? = miwokTranslation
 
-    /**
-     * Create a new Word object.
-     *
-     * @param defaultTranslation is the word in a language that the user is already familiar with
-     * (such as English)
-     * @param miwokTranslation is the word in the Miwok language
-     */
-    fun Word(defaultTranslation: String, miwokTranslation: String) {
-        mDefaultTranslation = defaultTranslation
-        mMiwokTranslation = miwokTranslation
-
-    }
+//    /**
+//     * Create a new Word object.
+//     *
+//     * @param defaultTranslation is the word in a language that the user is already familiar with
+//     * (such as English)
+//     * @param miwokTranslation is the word in the Miwok language
+//     */
+//    public fun Word(defaultTranslation: String, miwokTranslation: String) {
+//        mDefaultTrans = defaultTranslation
+//        mMiwokTrans = miwokTranslation
+//
+//    }
 
 
     /**
      * Get the default translation of the word.
      */
-    public fun getDefaultTranslation(): String {
-        return mDefaultTranslation.toString()
+    fun getDefaultTranslation(): String {
+        return mDefaultTrans.toString()
     }
 
     /**
      * Get the Miwok translation of the word.
      */
-    public fun getMiwokTranslation(): String {
-        return mMiwokTranslation.toString()
+    fun getMiwokTranslation(): String {
+        return mMiwokTrans.toString()
     }
 
 
