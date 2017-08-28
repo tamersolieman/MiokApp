@@ -3,14 +3,14 @@ package com.tamer.miwokapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_numbers.*
+import kotlinx.android.synthetic.main.word_list.*
 
 
 class NumbersActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_numbers)
+        setContentView(R.layout.word_list)
 
         //Create an ArrayList of words
         val words = ArrayList<Word>()
@@ -39,7 +39,7 @@ class NumbersActivity : AppCompatActivity() {
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // activity_numbers.xml layout file.
+        // word_list.xml file.
         val listView = listView as ListView
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
