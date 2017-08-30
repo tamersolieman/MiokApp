@@ -14,14 +14,14 @@ class ColorsActivity : AppCompatActivity() {
         //Create an ArrayList of words
         val words = ArrayList<Word>()
 
-        words.add(Word("red", "weṭeṭṭi"))
-        words.add(Word("mustard yellow", "chiwiiṭә"))
-        words.add(Word("dusty yellow", "ṭopiisә"))
-        words.add(Word("green", "chokokki"))
-        words.add(Word("brown", "ṭakaakki"))
-        words.add(Word("gray", "ṭopoppi"))
-        words.add(Word("black", "kululli"))
-        words.add(Word("white", "kelelli"))
+        words.add(Word("red", "weṭeṭṭi", R.drawable.color_red))
+        words.add(Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow))
+        words.add(Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow))
+        words.add(Word("green", "chokokki", R.drawable.color_green))
+        words.add(Word("brown", "ṭakaakki", R.drawable.color_brown))
+        words.add(Word("gray", "ṭopoppi", R.drawable.color_gray))
+        words.add(Word("black", "kululli", R.drawable.color_black))
+        words.add(Word("white", "kelelli", R.drawable.color_white))
 
 
         //val rootView = rootView as LinearLayout
@@ -32,7 +32,7 @@ class ColorsActivity : AppCompatActivity() {
         // simple_list_item_1.xml layout resource defined in the Android framework.
         // This list item layout contains a single {@link TextView}, which the adapter will set to
         // display a single word.
-        val itemsAdapter = WordAdapter(this, words)
+        val itemsAdapter = WordAdapter(this, words,R.color.category_colors)
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the

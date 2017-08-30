@@ -4,12 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import kotlinx.android.synthetic.main.item_list.view.*
 
 
@@ -17,20 +16,10 @@ import kotlinx.android.synthetic.main.item_list.view.*
 * {@link WordAdapter} is an {@link ArrayAdapter} that can provide the layout for each list
 * based on a data source, which is a list of {@link Word} objects.
 * */
-class WordAdapter
-/**
- * This is our own custom constructor (it doesn't mirror a superclass constructor).
- * The context is used to inflate the layout file, and the list is the data we want
- * to populate into the lists.
- *
- * @param context        The current context. Used to inflate the layout file.
- * @param words A List of Word objects to display in a list
- */
-(context: Activity, words: ArrayList<Word>)// Here, we initialize the ArrayAdapter's internal storage for the context and the list.
-// the second argument is used when the ArrayAdapter is populating a single TextView.
-// Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
-// going to use this second argument, so it can be any value. Here, we used 0.
-    : ArrayAdapter<Word>(context, 0, words) {
+class WordAdapter(context: Activity, words: ArrayList<Word>, colorResourceId: Int) : ArrayAdapter<Word>(context, 0, words) {
+
+    private var mColorResourceID: Int = colorResourceId
+
 
     /**
      * Provides a view for an AdapterView (ListView, GridView, etc.)
@@ -65,6 +54,27 @@ class WordAdapter
         // set this text on the number TextView
         mMiwokTrans.text = currentWord.getMiwokTranslation()
 
+        // Find the TextView in the item_list.xml layout with the ID imageView
+        val mImageResource = listItemView.imageView as ImageView
+
+        // Check if an image is provided for this word or not
+        if (currentWord.hasImage()) {
+            // If an image is available, display the provided image based on the resource ID
+            mImageResource.setImageResource(currentWord.getImageIcon())
+            // Make sure the view is visible
+            mImageResource.visibility = View.VISIBLE
+        } else {
+            // Otherwise hide the ImageView (set visibility to GONE)
+            mImageResource.visibility = View.GONE
+        }
+
+
+        //set color
+
+        val textContainer = listItemView.text_container as LinearLayout
+
+        val color:Int = ContextCompat.getColor(context,mColorResourceID)
+        textContainer.setBackgroundColor(color)
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

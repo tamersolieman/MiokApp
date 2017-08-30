@@ -14,16 +14,16 @@ class FamilyActivity : AppCompatActivity() {
         //Create an ArrayList of words
         val words = ArrayList<Word>()
 
-        words.add(Word("father", "әpә"))
-        words.add(Word("mother", "әṭa"))
-        words.add(Word("son", "angsi"))
-        words.add(Word("daughter", "tune"))
-        words.add(Word("older brother", "taachi"))
-        words.add(Word("younger brother", "chalitti"))
-        words.add(Word("older sister", "teṭe"))
-        words.add(Word("younger sister", "kolliti"))
-        words.add(Word("grandmother", "ama"))
-        words.add(Word("grandfather", "paapa"))
+        words.add(Word("father", "әpә", R.drawable.family_father))
+        words.add(Word("mother", "әṭa", R.drawable.family_mother))
+        words.add(Word("son", "angsi", R.drawable.family_son))
+        words.add(Word("daughter", "tune", R.drawable.family_daughter))
+        words.add(Word("older brother", "taachi", R.drawable.family_older_brother))
+        words.add(Word("younger brother", "chalitti", R.drawable.family_younger_brother))
+        words.add(Word("older sister", "teṭe", R.drawable.family_older_sister))
+        words.add(Word("younger sister", "kolliti", R.drawable.family_younger_sister))
+        words.add(Word("grandmother ", "ama", R.drawable.family_grandmother))
+        words.add(Word("grandfather", "paapa", R.drawable.family_grandfather))
 
 
         //val rootView = rootView as LinearLayout
@@ -34,7 +34,7 @@ class FamilyActivity : AppCompatActivity() {
         // simple_list_item_1.xml layout resource defined in the Android framework.
         // This list item layout contains a single {@link TextView}, which the adapter will set to
         // display a single word.
-        val itemsAdapter = WordAdapter(this, words)
+        val itemsAdapter = WordAdapter(this, words,R.color.category_family)
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
